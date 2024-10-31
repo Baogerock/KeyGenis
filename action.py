@@ -1,5 +1,21 @@
 import time
 import pydirectinput
+from pynput import keyboard
+
+running = True
+
+
+def on_press(key):
+    global running
+    try:
+        if key == keyboard.Key.f12:
+            running = False  # 当按下F12时停止循环
+    except Exception as e:
+        print(f"Error: {e}")
+
+
+listener = keyboard.Listener(on_press=on_press)
+listener.start()
 
 
 def process_instructions(script_path, loop_amount, loop_gap_time, time_speed):
@@ -8,6 +24,9 @@ def process_instructions(script_path, loop_amount, loop_gap_time, time_speed):
     number_lines = len(scripts)
 
     for _ in range(loop_amount):
+        if not running:  # 检查是否需要停止
+            print("\n循环已被停止")
+            break
         i = 0
         for line in scripts:
             # 跳过第一行的等待和最后一行的额外录制
@@ -71,5 +90,3 @@ def simulate_key_and_mouse_operations():
     time.sleep(0.5)  # 按住 0.5 秒
     pydirectinput.mouseUp()  # 松开鼠标
     print("鼠标已点击")
-
-
