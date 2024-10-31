@@ -36,7 +36,7 @@ class StartInterface(QWidget):
         self.setLayout(grid_layout)
 
         # 设置窗口的标题和大小
-        self.setWindowTitle('布局示例')
+        self.setWindowTitle('按键精灵')
         self.setGeometry(100, 100, 300, 200)
         self.show()
 

@@ -28,7 +28,7 @@ class SettingsInterface(QWidget):
         self.time_speed.setText('1')
 
         # 创建确定按钮
-        submit_button = QPushButton('确定', self)
+        submit_button = QPushButton('启动', self)
         submit_button.clicked.connect(self.print_inputs)
 
         # 将输入框和按钮添加到布局中
@@ -40,7 +40,7 @@ class SettingsInterface(QWidget):
         self.layout.addWidget(self.time_speed)
         self.layout.addWidget(submit_button)
         self.setLayout(self.layout)
-        self.setWindowTitle('输入框示例')
+        self.setWindowTitle('脚本设置')
         self.setGeometry(100, 100, 300, 200)
 
     def print_inputs(self):
