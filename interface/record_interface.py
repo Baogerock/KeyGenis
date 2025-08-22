@@ -23,6 +23,8 @@ class RecordInterface(QWidget):
 
     def initUI(self):
         grid_layout = QGridLayout()
+        grid_layout.setSpacing(15)
+        grid_layout.setContentsMargins(20, 20, 20, 20)
 
         start_button = QPushButton('开始')
         pause_button = QPushButton('暂停')  # 现在还不起任何作用
@@ -33,6 +35,18 @@ class RecordInterface(QWidget):
         grid_layout.addWidget(end_button, 1, 2)
 
         self.setLayout(grid_layout)
+        self.setStyleSheet(
+            """
+            QWidget {
+                font-family: 'Arial';
+                font-size: 14px;
+            }
+            QPushButton {
+                padding: 6px 12px;
+                border-radius: 4px;
+            }
+            """
+        )
 
         self.setWindowTitle('录制中')
         self.setGeometry(200, 200, 300, 200)

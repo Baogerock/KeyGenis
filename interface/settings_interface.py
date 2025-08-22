@@ -13,6 +13,8 @@ class SettingsInterface(QWidget):
 
     def initUI(self):
         self.layout = QVBoxLayout()
+        self.layout.setSpacing(10)
+        self.layout.setContentsMargins(20, 20, 20, 20)
 
         # 创建多个输入框
         self.loop_amount = QLineEdit(self)
@@ -40,6 +42,22 @@ class SettingsInterface(QWidget):
         self.layout.addWidget(self.time_speed)
         self.layout.addWidget(submit_button)
         self.setLayout(self.layout)
+        self.setStyleSheet(
+            """
+            QWidget {
+                font-family: 'Arial';
+                font-size: 14px;
+            }
+            QPushButton {
+                padding: 6px 12px;
+                border-radius: 4px;
+            }
+            QLineEdit {
+                padding: 4px;
+                border-radius: 2px;
+            }
+            """
+        )
         self.setWindowTitle('脚本设置')
         self.setGeometry(100, 100, 300, 200)
 

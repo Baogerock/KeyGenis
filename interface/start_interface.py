@@ -13,8 +13,10 @@ class StartInterface(QWidget):
         self.save_path = f'./script/'
 
     def initUI(self):
-        # 创建一个网格布局
+        # 创建一个网格布局并添加基础边距与间隔让界面更加舒适
         grid_layout = QGridLayout()
+        grid_layout.setSpacing(15)
+        grid_layout.setContentsMargins(20, 20, 20, 20)
 
         # 创建标签和按钮
         # label = QLabel('这是一个标签')
@@ -32,8 +34,20 @@ class StartInterface(QWidget):
         grid_layout.addWidget(select_button, 1, 1)
         grid_layout.addWidget(config_button, 2, 0, 1, 2)
 
-        # 设置布局到窗口
+        # 设置布局到窗口并应用统一的样式
         self.setLayout(grid_layout)
+        self.setStyleSheet(
+            """
+            QWidget {
+                font-family: 'Arial';
+                font-size: 14px;
+            }
+            QPushButton {
+                padding: 6px 12px;
+                border-radius: 4px;
+            }
+            """
+        )
 
         # 设置窗口的标题和大小
         self.setWindowTitle('按键精灵')
